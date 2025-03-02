@@ -6,30 +6,18 @@
     <title>Philippine MRT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        html, body {
+            height: 100%; 
+            margin: 0; 
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #e6f2ff;
+            background-color: #e6f2ff; 
             color: #333;
-        }
-        .form-container {
-            background-color: #b3d9ff;
-            border: 2px solid #0066cc;
-            padding: 20px;
-            margin: 20px auto;
-            border-radius: 20px;
-            width: 50%;
-            display: inline-block;
-        }
-        h1 {
-            text-align: center;
-            color: #e60000;
-        }
-        .btn-primary {
-            background-color: #e60000;
-            border: none;
-        }
-        .btn-primary:hover {
-            background-color: #c70000;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
         }
         nav {
             background-color: #b3d9ff;
@@ -55,28 +43,133 @@
             max-width: 50px;
         }
 
-        .side-image {
-            float: right;
-            margin-left: 20px;
-            margin-top: 20px;
-            max-width: 45%;
-            border: 2px solid #0066cc;
-        }
-        
-        .second-image {
-            float: left;
-            margin-left: 20px;
-            margin-top: 20px;
-            width: 40%;
-            border: 2px solid #0066cc;
+        .navbar-toggler-icon {
+            background-color: white;
         }
 
-        .clearfix {
-            clear: both;
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #e60000; 
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e60000; 
+            color: white;
+        }
+
+        .form-container {
+            background-color: #b3d9ff; 
+            border: 2px solid #0066cc; 
+            padding: 20px;
+            margin: 20px;
+            border-radius: 20px;
+            opacity: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #e60000; 
+        }
+
+        .form-group label {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .form-group select, .form-group input, .form-group textarea {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkbox-group label {
+            margin-left: 10px;
+        }
+
+        .search-bar {
+            width: 250px;
+        }
+
+        button {
+            text-align: center;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #e60000;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #c70000;
+        }
+
+        .btn-secondary {
+            background-color: #0066cc;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #004999;
+        }
+
+        #price-info {
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .submit-comment {
+            background-color: #e60000;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-comment:hover {
+            background-color: #c70000;
         }
     </style>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -91,7 +184,7 @@
                         <a class="nav-link active" href="https://jake-andes.github.io/main-page/">home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Train Schedule</a>
+                        <a class="nav-link" href="https://jake-andes.github.io/Train-schedule/">Train Schedule</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://jake-andes.github.io/feedback/">help</a>
@@ -104,85 +197,33 @@
             </div>
         </div>
     </nav>
-    
-    <div class="container">
-        <div class="form-container">
-            <h1>MRT Fare Calculator</h1>
-            <form>
-                <div class="mb-3">
-                    <label for="origin" class="form-label">Select Origin Station</label>
-                    <select id="origin" class="form-control">
-                        <option>North Ave</option>
-                        <option>Quezon Ave</option>
-                        <option>GMA Kamuning</option>
-                        <option>Araneta - Cubao</option>
-                        <option>Santolan Annapolis</option>
-                        <option>Ortigas</option>
-                        <option>Shaw Blvd.</option>
-                        <option>Boni</option>
-                        <option>Guadalupe</option>
-                        <option>Buendia</option>
-                        <option>Ayala</option>
-                        <option>Magallanes</option>
-                        <option>Taft Ave</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="destination" class="form-label">Select Destination Station</label>
-                    <select id="destination" class="form-control">
-                        <option>North Ave</option>
-                        <option>Quezon Ave</option>
-                        <option>GMA Kamuning</option>
-                        <option>Araneta - Cubao</option>
-                        <option>Santolan Annapolis</option>
-                        <option>Ortigas</option>
-                        <option>Shaw Blvd.</option>
-                        <option>Boni</option>
-                        <option>Guadalupe</option>
-                        <option>Buendia</option>
-                        <option>Ayala</option>
-                        <option>Magallanes</option>
-                        <option>Taft Ave</option>
-                    </select>
-                </div>
-                <button type="button" class="btn btn-primary w-100" onclick="calculateFare()">Get Fare</button>
-                <p class="mt-3 text-center" id="fare-result"></p>
-            </form>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h1>Leave a Comment</h1>
+                <form class="form-group">
+                    <h2>We value your feedback.</h2>
+                    <label for="why">Feedback</label>
+                    <textarea rows="5" placeholder="Type your answer here..."></textarea>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    
+                    
+                    <button class="submit-comment" type="submit">Submit Feedback</button>
+                </form>
+            </div>
         </div>
-
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Manila-transportation-map.pdf/page1-1200px-Manila-transportation-map.pdf.jpg" class="side-image" alt="Manila MRT Map">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/MRTC_3000_trains_from_Kamuning_footbridge.jpg/300px-MRTC_3000_trains_from_Kamuning_footbridge.jpg" class="second-image" alt="Train Image">
-    </div>
-
-    <script>
-        var fareMatrix = {
-            "North Ave": { "Quezon Ave": 13, "GMA Kamuning": 16, "Araneta - Cubao": 16, "Santolan Annapolis": 20, "Ortigas": 20, "Shaw Blvd.": 20, "Boni": 24, "Guadalupe": 24, "Buendia": 24, "Ayala": 28, "Magallanes": 28, "Taft Ave": 28 },
-            "Quezon Ave": { "North Ave": 13, "GMA Kamuning": 13, "Araneta - Cubao": 16, "Santolan Annapolis": 16, "Ortigas": 20, "Shaw Blvd.": 20, "Boni": 20, "Guadalupe": 24, "Buendia": 24, "Ayala": 24, "Magallanes": 28, "Taft Ave": 28 },
-            "GMA Kamuning": { "North Ave": 16, "Quezon Ave": 13, "Araneta - Cubao": 13, "Santolan Annapolis": 16, "Ortigas": 16, "Shaw Blvd.": 20, "Boni": 20, "Guadalupe": 20, "Buendia": 24, "Ayala": 24, "Magallanes": 24, "Taft Ave": 28 },
-            "Araneta - Cubao": { "North Ave": 16, "Quezon Ave": 16, "GMA Kamuning": 13, "Santolan Annapolis": 13, "Ortigas": 13, "Shaw Blvd.": 16, "Boni": 16, "Guadalupe": 20, "Buendia": 20, "Ayala": 20, "Magallanes": 24, "Taft Ave": 24 },
-            "Santolan Annapolis": { "North Ave": 20, "Quezon Ave": 16, "GMA Kamuning": 16, "Araneta - Cubao": 13, "Ortigas": 13, "Shaw Blvd.": 13, "Boni": 16, "Guadalupe": 16, "Buendia": 20, "Ayala": 20, "Magallanes": 20, "Taft Ave": 24 },
-            "Ortigas": { "North Ave": 20, "Quezon Ave": 20, "GMA Kamuning": 16, "Araneta - Cubao": 13, "Santolan Annapolis": 13, "Shaw Blvd.": 13, "Boni": 13, "Guadalupe": 16, "Buendia": 16, "Ayala": 20, "Magallanes": 20, "Taft Ave": 20 },
-            "Shaw Blvd.": { "North Ave": 20, "Quezon Ave": 20, "GMA Kamuning": 20, "Araneta - Cubao": 16, "Santolan Annapolis": 13, "Ortigas": 13, "Boni": 13, "Guadalupe": 13, "Buendia": 16, "Ayala": 16, "Magallanes": 20, "Taft Ave": 20 },
-            "Boni": { "North Ave": 24, "Quezon Ave": 20, "GMA Kamuning": 20, "Araneta - Cubao": 16, "Santolan Annapolis": 16, "Ortigas": 13, "Shaw Blvd.": 13, "Guadalupe": 13, "Buendia": 13, "Ayala": 16, "Magallanes": 16, "Taft Ave": 20 },
-            "Guadalupe": { "North Ave": 24, "Quezon Ave": 24, "GMA Kamuning": 20, "Araneta - Cubao": 20, "Santolan Annapolis": 16, "Ortigas": 16, "Shaw Blvd.": 13, "Boni": 13, "Buendia": 13, "Ayala": 13, "Magallanes": 16, "Taft Ave": 16 },
-            "Buendia": { "North Ave": 24, "Quezon Ave": 24, "GMA Kamuning": 24, "Araneta - Cubao": 20, "Santolan Annapolis": 20, "Ortigas": 16, "Shaw Blvd.": 16, "Boni": 13, "Guadalupe": 13, "Ayala": 13, "Magallanes": 13, "Taft Ave": 16 },
-            "Ayala": { "North Ave": 28, "Quezon Ave": 24, "GMA Kamuning": 24, "Araneta - Cubao": 20, "Santolan Annapolis": 20, "Ortigas": 20, "Shaw Blvd.": 16, "Boni": 16, "Guadalupe": 13, "Buendia": 13, "Magallanes": 13, "Taft Ave": 13 },
-            "Magallanes": { "North Ave": 28, "Quezon Ave": 28, "GMA Kamuning": 24, "Araneta - Cubao": 24, "Santolan Annapolis": 20, "Ortigas": 20, "Shaw Blvd.": 20, "Boni": 16, "Guadalupe": 16, "Buendia": 13, "Ayala": 13, "Taft Ave": 13 },
-            "Taft Ave": { "North Ave": 28, "Quezon Ave": 28, "GMA Kamuning": 28, "Araneta - Cubao": 24, "Santolan Annapolis": 24, "Ortigas": 20, "Shaw Blvd.": 20, "Boni": 20, "Guadalupe": 16, "Buendia": 16, "Ayala": 13, "Magallanes": 13 }
-        };
-
-        function calculateFare() {
-            var origin = document.getElementById("origin").value;
-            var destination = document.getElementById("destination").value;
-            var fareResult = document.getElementById("fare-result");
-
-            var fare = fareMatrix[origin] && fareMatrix[origin][destination];
-
-            fareResult.innerText = fare ? `Fare: ₱${fare}` : "You are already at your destination";
-        }
-    </script>
-
-
-    <a href="https://docs.google.com/document/d/1-lCxgeS29A9WXPOWPismmZdI5rSZcej8emqPFwisLZ4/edit?tab=t.0" target="_blank"><p>REFERENCES</p></a>
+    </main>
+<a href="https://docs.google.com/document/d/1-lCxgeS29A9WXPOWPismmZdI5rSZcej8emqPFwisLZ4/edit?tab=t.0" target="_blank"><p>REFERENCES</p></a>
 </body>
 </html>
